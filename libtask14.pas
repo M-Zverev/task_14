@@ -6,6 +6,14 @@ begin
   result:=(y mod 100 = 4) or ((y mod 100 <> 0) or (y mod 400 = 0));
 end;
 
+function LaterInYear(x, y:integer):integer;
+begin
+  if x<y then
+    result:=y
+  else 
+    result:=x;
+end;
+
 begin
   
 end.
