@@ -1,9 +1,9 @@
 ﻿unit libtask14;
 
-function IsLeapYear:boolean;
+function IsLeapYear(y:integer):boolean;
 begin
-  var y:=DateTime.Now.Year;
-  result:=(y mod 100 = 4) or ((y mod 100 <> 0) or (y mod 400 = 0));
+  if (y mod 4 = 0) then
+    result:=(y mod 100 <> 0) or (y mod 400 = 0);  
 end;
 
 function LaterInYear(x, y:integer):integer;
@@ -12,6 +12,14 @@ begin
     result:=y
   else 
     result:=x;
+end;
+
+function DaysInYear:integer;
+begin
+  if IsLeapYear(DateTime.Now.Year) then
+    result:=366
+  else 
+    result:=365;
 end;
 
 begin
